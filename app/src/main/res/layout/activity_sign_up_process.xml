@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.example.naorhen12.iqueues.SignInProcess">
+    tools:context="com.example.naorhen12.iqueues.SignUpProcess">
 
     <TextView
         android:id="@+id/myTxt"

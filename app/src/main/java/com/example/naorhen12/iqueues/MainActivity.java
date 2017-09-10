@@ -2,15 +2,8 @@ package com.example.naorhen12.iqueues;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.Toolbar;
 import android.view.View;
-import android.view.Menu;
-import android.view.MenuItem;
-import android.widget.Button;
-import android.widget.TextView;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -20,14 +13,17 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-
-
     }
-
+//goes to sign-up activity
    public void signingIn(View view) {
 
 
-       Intent i = new Intent(this,SignInProcess.class);
+       Intent i = new Intent(this,SignUpProcess.class);
        startActivity(i);
+   }
+   //goes to log-in activity.
+   public void loggingIn(View v)
+   {
+       //Intent i = new Intent()
    }
 }

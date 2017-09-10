@@ -2,4 +2,7 @@
     <string name="app_name">iQueues</string>
     <string name="action_settings">Settings</string>
     <string name="text">good bye world</string>
+    <string name="new_user">משתמש חדש לחץ כאן להירשם</string>
+    <string name="existing_user">משתמש קיים לחץ כאן להתחבר</string>
+    <string name="loginBtn">התחברות</string>
 </resources>
