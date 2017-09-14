@@ -20,7 +20,7 @@
         android:layout_marginTop="0dp"
         android:autoText="false"
         android:elevation="0dp"
-        android:onClick="signingIn"
+        android:onClick="signUp"
         android:text="להרשמה"
         android:textSize="12dp"
         android:textStyle="bold"
@@ -56,21 +56,21 @@
         tools:layout_constraintTop_creator="1" />
 
     <EditText
-        android:id="@+id/login_phone"
+        android:id="@+id/login_email"
         android:layout_width="283dp"
         android:layout_height="wrap_content"
+        android:layout_marginBottom="8dp"
         android:layout_marginLeft="8dp"
         android:layout_marginRight="8dp"
+        android:layout_marginTop="8dp"
         android:ems="10"
-        android:hint="מספר טלפון"
-        android:inputType="phone"
+        android:hint="אימייל"
+        android:inputType="textEmailAddress"
+        app:layout_constraintBottom_toTopOf="@+id/login_Pword"
+        app:layout_constraintHorizontal_bias="0.505"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintHorizontal_bias="0.505"
         app:layout_constraintTop_toTopOf="parent"
-        android:layout_marginTop="8dp"
-        android:layout_marginBottom="8dp"
-        app:layout_constraintBottom_toTopOf="@+id/login_Pword"
         app:layout_constraintVertical_bias="0.725" />
 
     <EditText
@@ -101,6 +101,7 @@
         android:background="@drawable/mybtn"
         android:backgroundTint="@android:color/holo_blue_light"
         android:elevation="0dp"
+        android:onClick="loginUser"
         android:text="@string/loginBtn"
         android:textSize="17dp"
         android:textStyle="bold"

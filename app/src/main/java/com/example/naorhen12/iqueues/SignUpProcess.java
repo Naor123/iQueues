@@ -67,7 +67,7 @@ public class SignUpProcess extends AppCompatActivity {
                             Toast.makeText(SignUpProcess.this,"registration successful",Toast.LENGTH_SHORT).show();
                             progressDialog.dismiss();
                             addUser();
-
+                            
                         } else {
                             Toast.makeText(SignUpProcess.this,"registration failed,please try again",Toast.LENGTH_SHORT).show();
                             progressDialog.dismiss();
