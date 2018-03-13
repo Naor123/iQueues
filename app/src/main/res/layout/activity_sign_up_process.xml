@@ -99,6 +99,7 @@
         android:ems="10"
         android:hint="מספר כובע"
         android:inputType="number"
+        android:textDirection="rtl"
         android:layout_gravity="center" />
 
     <EditText
@@ -109,11 +110,12 @@
         android:ems="10"
         android:hint="מספר רכב"
         android:inputType="number"
+        android:textDirection="rtl"
        android:layout_gravity="center"/>
 
     <Button
         android:id="@+id/signUpBtn"
-        android:layout_width="wrap_content"
+        android:layout_width="200dp"
         android:layout_height="wrap_content"
         android:onClick="signUser"
         android:text="@string/signup"

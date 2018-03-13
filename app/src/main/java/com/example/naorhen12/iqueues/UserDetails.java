@@ -3,21 +3,20 @@ package com.example.naorhen12.iqueues;
 
 public class UserDetails {
 
-    public String name;
-    public String lastName;
-    public String phone_number;
-    public String hat_number;
-    public String plate_number;
-    public String companyName;
+    private String name;
+    private String lastName;
+    private String phone_number;
+    private String hat_number;
+    private String plate_number;
+    private String companyName;
 
-    public UserDetails(String name,String lName,String phone,String hatNum,String plate,String company)
-    {
-        this.name=name;
-        this.lastName=lName;
-        this.phone_number=phone;
-        this.hat_number=hatNum;
-        this.plate_number=plate;
-        this.companyName=company;
+    public UserDetails(String name, String lastName, String phone_number, String hat_number, String plate_number, String companyName) {
+        this.name = name;
+        this.lastName = lastName;
+        this.phone_number = phone_number;
+        this.hat_number = hat_number;
+        this.plate_number = plate_number;
+        this.companyName = companyName;
     }
 
     public String getName() {

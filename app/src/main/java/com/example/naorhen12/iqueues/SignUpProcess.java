@@ -76,6 +76,7 @@ public class SignUpProcess extends AppCompatActivity {
                 });
 
     }
+
    public void addUser(){
        //gets current registered user object.
         FirebaseUser firebaseUser = firebaseAuth.getCurrentUser();

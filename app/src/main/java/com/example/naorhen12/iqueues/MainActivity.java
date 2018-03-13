@@ -16,11 +16,12 @@ import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 
+
 import org.w3c.dom.Text;
 
 public class MainActivity extends AppCompatActivity {
 
-    private FirebaseAuth uFirebaseAuth;
+    static FirebaseAuth uFirebaseAuth;
     private TextView loginEmail;
     private TextView loginPword;
     private ProgressDialog progressDialog;
@@ -40,7 +41,6 @@ public class MainActivity extends AppCompatActivity {
         loginEmail = (TextView) findViewById(R.id.login_email);
         loginPword = (TextView) findViewById(R.id.login_Pword);
 
-
     }
 
 
@@ -50,6 +50,7 @@ public class MainActivity extends AppCompatActivity {
         String pWord= loginPword.getText().toString().trim();
         progressDialog.setMessage("loggin in");
         progressDialog.show();
+
         if(TextUtils.isEmpty(email)|| TextUtils.isEmpty(pWord)) {
             Toast.makeText(MainActivity.this,"email or password fields are empty",Toast.LENGTH_SHORT).show();
             progressDialog.dismiss();
