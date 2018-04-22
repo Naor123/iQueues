@@ -14,12 +14,8 @@ import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
-import com.google.firebase.auth.FirebaseUser;
 
-
-import org.w3c.dom.Text;
-
-public class MainActivity extends AppCompatActivity {
+public class SignInProcess extends AppCompatActivity {
 
     static FirebaseAuth uFirebaseAuth;
     private TextView loginEmail;
@@ -29,7 +25,8 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.sign_in_process);
+
         uFirebaseAuth = uFirebaseAuth.getInstance();
 
         if(uFirebaseAuth.getCurrentUser() != null) {
@@ -52,7 +49,7 @@ public class MainActivity extends AppCompatActivity {
         progressDialog.show();
 
         if(TextUtils.isEmpty(email)|| TextUtils.isEmpty(pWord)) {
-            Toast.makeText(MainActivity.this,"email or password fields are empty",Toast.LENGTH_SHORT).show();
+            Toast.makeText(SignInProcess.this,"email or password fields are empty",Toast.LENGTH_SHORT).show();
             progressDialog.dismiss();
             return;
         }
@@ -65,7 +62,7 @@ public class MainActivity extends AppCompatActivity {
                     startActivity(new Intent(getApplicationContext(),DriverMainScreen.class));
                 }else {
                     progressDialog.dismiss();
-                    Toast.makeText(MainActivity.this, "email or password are incorrect,please check your entries.", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(SignInProcess.this, "email or password are incorrect,please check your entries.", Toast.LENGTH_SHORT).show();
                 }
 
             }

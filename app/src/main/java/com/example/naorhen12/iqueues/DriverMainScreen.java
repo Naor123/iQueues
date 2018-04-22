@@ -5,14 +5,19 @@ import android.app.Dialog;
 import android.os.Build;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.RecyclerView;
+import android.view.OrientationEventListener;
 import android.view.View;
 import android.widget.Button;
 import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.TextView;
 
+import java.time.Instant;
 import java.util.ArrayList;
 import java.util.Calendar;
+import java.util.Date;
 
 public class DriverMainScreen extends AppCompatActivity {
 
@@ -21,7 +26,7 @@ public class DriverMainScreen extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_driver_main);
 
-        ArrayList<String> time_per_day  = new ArrayList<>();
+    /*    ArrayList<String> time_per_day  = new ArrayList<>();
         time_per_day.add("08:00 - 08:30");
         time_per_day.add("08:30 - 09:00");
         time_per_day.add("09:00 - 09:30");
@@ -38,33 +43,31 @@ public class DriverMainScreen extends AppCompatActivity {
         time_per_day.add("14:30 - 15:00");
         time_per_day.add("15:00 - 15:30");
         time_per_day.add("15:30 - 16:00");
-        time_per_day.add("16:30 - 17:00");
+        time_per_day.add("16:30 - 17:00");*/
 
+        Calendar calendar = Calendar.getInstance();
+        int hourOfDay = calendar.get(Calendar.HOUR_OF_DAY);
+        int minutes = calendar.get(Calendar.MINUTE);
+        int year = calendar.get(Calendar.YEAR);
+        int month = calendar.get(Calendar.MONTH);
+        int dayOfWeek = calendar.get(Calendar.DAY_OF_WEEK);
 
-        Button dateBtn = findViewById(R.id.date_btn);
-        Button statBtn= findViewById(R.id.stat_btn);
-        TextView inputTv = findViewById(R.id.text_input);
+        String date = "בתאריך: " + dayOfWeek + "/" + month + "/" + year;
+        String time = "בשעה: " + hourOfDay + ":" + minutes;
+        String noQueue = "אין לך תור כרגע";
 
-        dateBtn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
+        ArrayList<Queue> queue_per_day = new ArrayList<>();
+        queue_per_day.add(new Queue(date, time, noQueue));
 
-                Calendar calendar = Calendar.getInstance();
-                int year = calendar.get(Calendar.YEAR);
-                int month = calendar.get(Calendar.MONTH);
-                int day = calendar.get(Calendar.DAY_OF_MONTH);
+        RecyclerView recyclerView = findViewById(R.id.recycler);
+        recyclerView.setHasFixedSize(true);
 
-                DatePickerDialog dpd = new DatePickerDialog(DriverMainScreen.this, new DatePickerDialog.OnDateSetListener() {
-                    @Override
-                    public void onDateSet(DatePicker datePicker, int i, int i1, int i2) {
+        LinearLayoutManager llm = new LinearLayoutManager(this);
+        llm.setOrientation(LinearLayoutManager.VERTICAL);
+        recyclerView.setLayoutManager(llm);
 
-                    }
-                },year,month,day);
-                    dpd.show();
-            }
-        });
-
-
+        QueueAdapter adapter = new QueueAdapter(queue_per_day);
+        recyclerView.setAdapter(adapter);
 
 
     }

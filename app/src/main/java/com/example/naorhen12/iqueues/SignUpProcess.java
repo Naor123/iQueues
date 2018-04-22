@@ -24,7 +24,7 @@ public class SignUpProcess extends AppCompatActivity {
 
     private DatabaseReference databaseReference;
     private FirebaseAuth firebaseAuth;
-    private TextView email,pWord,phone,plate,hatNum,name,lastName;
+    private TextView email,pWord,phone,hatNum,fullName;
     private ProgressDialog progressDialog;
     private Spinner companies;
     @Override
@@ -33,16 +33,15 @@ public class SignUpProcess extends AppCompatActivity {
         setContentView(R.layout.activity_sign_up_process);
         //initializing views
         firebaseAuth = FirebaseAuth.getInstance();
-        email = (TextView) findViewById(R.id.email);
-        pWord = (TextView) findViewById(R.id.pWord);
-        name = (TextView) findViewById(R.id.name);
-        lastName = (TextView) findViewById(R.id.lastName);
-        phone = (TextView) findViewById(R.id.phoneNum);
-        plate = (TextView) findViewById(R.id.plates);
-        hatNum = (TextView) findViewById(R.id.hatNum);
+        email = findViewById(R.id.email);
+        pWord = findViewById(R.id.pWord);
+        fullName = findViewById(R.id.name);
+        phone = findViewById(R.id.phoneNum);
+        hatNum = findViewById(R.id.hatNum);
+
         progressDialog = new ProgressDialog(this);
         databaseReference = FirebaseDatabase.getInstance().getReference();
-        companies = (Spinner) findViewById(R.id.taxiCompanies);
+        companies = findViewById(R.id.taxiCompanies);
 
     }
 
@@ -81,14 +80,13 @@ public class SignUpProcess extends AppCompatActivity {
        //gets current registered user object.
         FirebaseUser firebaseUser = firebaseAuth.getCurrentUser();
             String uId= firebaseUser.getUid();
-            String uName= name.getText().toString().trim();
-            String uLastName = lastName.getText().toString().trim();
+            String uName= fullName.getText().toString().trim();
             String uPhone = phone.getText().toString().trim();
             String uHat = hatNum.getText().toString().trim();
-            String uPlate= plate.getText().toString().trim();
             String uCompany = companies.getSelectedItem().toString().trim();
+
         //creates an object which contains all above strings.
-       UserDetails userInfo= new UserDetails(uName,uLastName,uPhone,uHat,uPlate,uCompany);
+       UserDetails userInfo= new UserDetails(uName,uPhone,uHat,uCompany);
        databaseReference.child(uId).setValue(userInfo);
     }
 
